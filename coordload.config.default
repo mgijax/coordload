@@ -110,7 +110,7 @@ export MS_OK_TO_SEARCH_ASSOC_CLONES
 INPUTDIR=/mgi/all/wts_projects/5300/5395/data
 
 # Full path the the logs, reports, and archive directories
-FILEDIR=/net/mtdoom/vol/rohan/data/loads/assembly/coordload_test
+FILEDIR=/data/loads/...
 LOGDIR=${FILEDIR}/logs
 RPTDIR=${FILEDIR}/reports
 OUTPUTDIR=${FILEDIR}/output
@@ -119,10 +119,10 @@ ARCHIVEDIR=${FILEDIR}/archive
 export INPUTDIR FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
 
 #  Complete path name of the input file
-INFILE_NAME=${INPUTDIR}/ncbi_build32
+INFILE_NAME=${INPUTDIR}/...
 
 # Send debug messages to the diagnostic log
-LOG_DEBUG=true
+LOG_DEBUG=false
 
 # Send caching debug to the diagnostic log
 CACHE_DEBUG=false
@@ -136,7 +136,7 @@ LOG_FACTORY=org.jax.mgi.shr.dla.DLALoggerFactory
 export INFILE_NAME LOG_DEBUG CACHE_DEBUG DBDEBUG LOG_FACTORY
 
 # this load's login value for DB table CreatedBy and ModifiedBy
-JOBSTREAM=ncbi_assemblyseqload
+JOBSTREAM=...
 
 export JOBSTREAM
 
@@ -149,18 +149,18 @@ LOG_VAL=${LOGDIR}/coordload.val.log
 export LOG_PROC LOG_DIAG LOG_CUR LOG_VAL
 
 # logical db name for this data provider
-COORD_LOGICALDB="NCBI Gene Model"
+COORD_LOGICALDB=...
 
-# name of organism to run
+# name of organism 
 COORD_ORGANISM="mouse, laboratory"
 
 # version of the coordinate load
-COORD_VERSION="NCBI Build 32"
+COORD_VERSION=...
 
 export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
 
 # coordinate map collection to which this load belongs
-COORD_COLLECTION_NAME="NCBI Gene Model"
+COORD_COLLECTION_NAME=...
 
 # abbreviation for the coordinate collection
 # if no value assigned will be same as COORD_COLLECTION
