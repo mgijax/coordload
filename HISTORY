@@ -1,3 +1,10 @@
+TAG: coordload-1-0-4
+DATE: 11-19-2004
+STAFF: sc
+RELEASE: dev
+CHANGES: tr6336
+1) coordload.config.default - new common config vars
+
 TAG: coordload-1-0-3
 DATE: 11-17-2004
 STAFF: sc
