@@ -94,10 +94,10 @@ DLA_RADAR_STREAM=org.jax.mgi.shr.dbutils.dao.BCP_Stream
 export DLA_DB_PREFIX DLA_LOAD_STREAM DLA_RADAR_STREAM
 
 #  Java applications
-DLA_LOADER=org.jax.mgi.shr.dla.coordloader.CoordLoader
-DLA_START=org.jax.mgi.shr.dla.DLAStart
-COORD_INTERPRETER=org.jax.mgi.shr.dla.coordloader.MGSCoordinateFormatInterpreter
-COORD_PROCESSOR=org.jax.mgi.shr.dla.coordloader.ChromosomeCoordMapProcessor
+DLA_LOADER=org.jax.mgi.shr.dla.loader.coord.CoordLoader
+DLA_START=org.jax.mgi.shr.dla.loader.DLAStart
+COORD_INTERPRETER=org.jax.mgi.shr.dla.input.mgs.MGSCoordinateFormatInterpreter
+COORD_PROCESSOR=org.jax.mgi.dbs.mgd.loads.Coord.ChromosomeCoordMapProcessor
 
 export DLA_LOADER DLA_START COORD_INTERPRETER COORD_PROCESSOR
 
@@ -131,7 +131,7 @@ CACHE_DEBUG=false
 DBDEBUG=false
 
 # log factory class so classes can get their own logger
-LOG_FACTORY=org.jax.mgi.shr.dla.DLALoggerFactory
+LOG_FACTORY=org.jax.mgi.shr.dla.log.DLALoggerFactory
 
 export INFILE_NAME LOG_DEBUG CACHE_DEBUG DBDEBUG LOG_FACTORY
 
