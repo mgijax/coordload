@@ -1,3 +1,10 @@
+TAG: coordload-1-0-3
+DATE: 11-17-2004
+STAFF: sc
+RELEASE: dev
+CHANGES: TR6047 dla refactoring
+1) coordload.config.defaults - updated with new class package paths
+
 TAG: coordload-1-0-2
 DATE: 11-10-2004
 STAFF: sc
