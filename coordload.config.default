@@ -1,0 +1,230 @@
+#format: sh
+#
+#  coordload.config.default
+#
+#  This file sets up environment variables that are needed for the
+#  Coordinate load
+#
+###########################################################################
+
+
+###########################################################################
+#
+#  GENERAL SETTINGS
+#
+###########################################################################
+
+#  Installation directory 
+INSTALLDIR=/usr/local/mgi/live/dataload/coordload
+
+export INSTALLDIR
+
+###########################################################################
+#
+#  DATABASE SETTINGS BY DATABASE
+#
+###########################################################################
+
+# MGD Connection parameters 
+MGD_DBSERVER=PROD_MGI
+#MGD_DBSERVER=DEV1_MGI
+
+MGD_DBURL=shire.informatics.jax.org:4100
+#MGD_DBURL=rohan.informatics.jax.org:4101
+
+MGD_DBNAME=mgd
+MGD_DBUSER=mgd_dbo
+
+MGD_DBSCHEMADIR=/usr/local/mgi/live/dbutils/mgd/mgddbschema
+#MGD_DBSCHEMADIR=/home/sc/jsam/mgddbschema
+
+MGD_DBPASSWORDFILE=${DBUTILSDIR}/.mgd_dbo_password
+
+export MGD_DBSERVER MGD_DBURL MGD_DBNAME
+export MGD_DBUSER MGD_DBSCHEMADIR MGD_DBPASSWORDFILE
+
+# RADAR Connection parameters 
+RADAR_DBSERVER=PROD_MGI
+#RADAR_DBSERVER=DEV1_MGI
+
+RADAR_DBURL=shire.informatics.jax.org:4100
+#RADAR_DBURL=rohan.informatics.jax.org:4101
+
+RADAR_DBNAME=radar
+#RADAR_DBNAME=radar_release
+
+RADAR_DBUSER=mgd_dbo
+
+RADAR_DBSCHEMADIR=/usr/local/mgi/live/dbutils/radar/radardbschema
+#RADAR_DBSCHEMADIR=/home/sc/jsam/radardbschema
+
+RADAR_DBPASSWORDFILE=${DBUTILSDIR}/.mgd_dbo_password
+
+export RADAR_DBSERVER RADAR_DBURL RADAR_DBNAME RADAR_DBUSER
+export RADAR_DBSCHEMADIR RADAR_DBPASSWORDFILE
+
+##########################################################################
+#
+#  SOFTWARE SETTINGS
+#
+###########################################################################
+
+JAVARUNTIMEOPTS="-Xms1500m -Xmx1500m"
+
+JAVA_LIB=/usr/local/mgi/live/lib/java1.4/lib_java_core/core.jar:/usr/local/mgi/live/lib/java1.4/lib_java_dbsmgd/dbsmgd.jar:/usr/local/mgi/live/lib/java1.4/lib_java_dbsrdr/dbsrdr.jar:/usr/local/mgi/live/lib/java1.4/lib_java_dla/dla.jar
+
+#JAVA_LIB=/home/sc/jsam/lib_java_core/classes:/home/sc/jsam/lib_java_dbsmgd/classes:/home/sc/jsam/lib_java_dbsrdr/classes:/home/sc/jsam/lib_java_dla/classes
+
+CLASSPATH=.:${INSTALLDIR}/classes:${JAVA_LIB}:${COMMON_CLASSPATH}
+
+export JAVARUNTIMEOPTS JAVA_LIB CLASSPATH
+
+
+###########################################################################
+#
+#  LOAD SPECIFIC SETTINGS
+#
+###########################################################################
+
+# SQL STREAM
+DLA_DB_PREFIX=MGD
+DLA_LOAD_STREAM=org.jax.mgi.shr.dbutils.dao.BCP_Inline_Stream
+DLA_RADAR_STREAM=org.jax.mgi.shr.dbutils.dao.BCP_Stream
+
+export DLA_DB_PREFIX DLA_LOAD_STREAM DLA_RADAR_STREAM
+
+#  Java applications
+DLA_LOADER=org.jax.mgi.shr.dla.coordloader.CoordLoader
+DLA_START=org.jax.mgi.shr.dla.DLAStart
+COORD_INTERPRETER=org.jax.mgi.shr.dla.coordloader.MGSCoordMapFormatInterpreter
+COORD_PROCESSOR=org.jax.mgi.shr.dla.coordloader.ChromosomeCoordMapProcessor
+
+export DLA_LOADER DLA_START COORD_INTERPRETER COORD_PROCESSOR
+
+# turn off searches for associated clones in the MSProcessor
+MS_OK_TO_SEARCH_ASSOC_CLONES=false
+
+export MS_OK_TO_SEARCH_ASSOC_CLONES
+
+# Full path to dir containing input files 
+INPUTDIR=/mgi/all/wts_projects/5300/5395/data
+
+# Full path the the logs, reports, and archive directories
+FILEDIR=/net/mtdoom/vol/rohan/data/loads/assembly/coordload_test
+LOGDIR=${FILEDIR}/logs
+RPTDIR=${FILEDIR}/reports
+OUTPUTDIR=${FILEDIR}/output
+ARCHIVEDIR=${FILEDIR}/archive
+
+export INPUTDIR FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
+
+#  Complete path name of the input file
+INFILE_NAME=${INPUTDIR}/ncbi_build32
+
+# Send debug messages to the diagnostic log
+LOG_DEBUG=true
+
+# Send caching debug to the diagnostic log
+CACHE_DEBUG=false
+
+# Send sql debug to the diagnostic log
+DBDEBUG=false
+
+# log factory class so classes can get their own logger
+LOG_FACTORY=org.jax.mgi.shr.dla.DLALoggerFactory
+
+export INFILE_NAME LOG_DEBUG CACHE_DEBUG DBDEBUG LOG_FACTORY
+
+# this load's login value for DB table CreatedBy and ModifiedBy
+JOBSTREAM=ncbi_assemblyseqload
+
+export JOBSTREAM
+
+#  Complete path name of the log files
+LOG_PROC=${LOGDIR}/coordload.proc.log
+LOG_DIAG=${LOGDIR}/coordload.diag.log
+LOG_CUR=${LOGDIR}/coordload.cur.log
+LOG_VAL=${LOGDIR}/coordload.val.log
+
+export LOG_PROC LOG_DIAG LOG_CUR LOG_VAL
+
+# logical db name for this data provider
+COORD_LOGICALDB="NCBI Gene Model"
+
+# name of organism to run
+COORD_ORGANISM="mouse, laboratory"
+
+# version of the coordinate load
+COORD_VERSION="NCBI Build 32"
+
+export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
+
+# coordinate map collection to which this load belongs
+COORD_COLLECTION_NAME="NCBI Gene Model"
+
+# abbreviation for the coordinate collection
+# if no value assigned will be same as COORD_COLLECTION
+COORD_COLLECTION_ABBREV=
+
+# coordinate map type
+COORD_TYPE=Assembly
+
+# the coordinate map units
+COORD_UNITS="base pair"
+
+# MGI type name of the feature
+COORD_FEATURE_MGITYPE=Sequence
+
+export COORD_COLLECTION_NAME COORD_COLLECTION_ABBREV COORD_TYPE
+export COORD_UNITS COORD_FEATURE_MGITYPE
+
+# full path to coordinate repeat file
+COORD_REPEAT_FILE=${OUTPUTDIR}/coordrepeats.out
+
+export COORD_REPEAT_FILE
+
+###########################################################################
+#
+#  BCP MANAGER SETTINGS BY DATABASE
+#
+###########################################################################
+
+#  Settings used to create a BCP manager for the MGD database
+MGD_BCP_PATH=${OUTPUTDIR}
+MGD_BCP_PREVENT_EXECUTE=false
+MGD_BCP_TRUNCATE_LOG=true
+MGD_BCP_DROP_INDEXES=false
+MGD_BCP_RECORD_STAMPING=false
+MGD_BCP_AUTO_FLUSH=false
+MGD_BCP_OK_TO_OVERWRITE=false
+
+export MGD_BCP_PATH MGD_BCP_PREVENT_EXECUTE MGD_BCP_TRUNCATE_LOG
+export MGD_BCP_DROP_INDEXES MGD_BCP_RECORD_STAMPING MGD_BCP_AUTO_FLUSH
+export MGD_BCP_OK_TO_OVERWRITE
+
+#  Settings used to create a BCP manager for the MGD database
+RADAR_BCP_PATH=${OUTPUTDIR}
+RADAR_BCP_PREVENT_EXECUTE=false
+RADAR_BCP_TRUNCATE_LOG=true
+RADAR_BCP_DROP_INDEXES=false
+RADAR_BCP_RECORD_STAMPING=false
+RADAR_BCP_AUTO_FLUSH=false
+RADAR_BCP_OK_TO_OVERWRITE=false
+
+export RADAR_BCP_PATH RADAR_BCP_PREVENT_EXECUTE RADAR_BCP_TRUNCATE_LOG
+export RADAR_BCP_DROP_INDEXES RADAR_BCP_RECORD_STAMPING RADAR_BCP_AUTO_FLUSH
+export RADAR_BCP_OK_TO_OVERWRITE
+
+###########################################################################
+#
+#  MISCELLANEOUS SETTINGS
+#
+###########################################################################
+#  The name of the load for the subject of an email notification
+MAIL_LOADNAME="Coord Load"
+
+#  Recipient list for mailing the log files (comma-separated)
+MAIL_LOG_PROC="sc"
+MAIL_LOG_CUR="sc"
+
+export MAIL_LOADNAME MAIL_LOG_PROC MAIL_LOG_CUR
