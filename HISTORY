@@ -1,6 +1,13 @@
+TAG: coordload-1-0-1
+DATE: 10-20-2004
+STAFF: sc
+RELEASE: dev
+CHANGES:TR5395
+1) removed ncbi values from coordload.config.default
+
 TAG: coordload-1-0-0
 DATE: 10-20-2004j
 STAFF: sc
 RELEASE: dev
-CHANGES: initial tag
+CHANGES: TR5395 initial tag
 
