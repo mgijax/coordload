@@ -88,7 +88,7 @@ export JAVARUNTIMEOPTS JAVA_LIB CLASSPATH
 
 # SQL STREAM
 DLA_DB_PREFIX=MGD
-DLA_LOAD_STREAM=org.jax.mgi.shr.dbutils.dao.BCP_Inline_Stream
+DLA_LOAD_STREAM=org.jax.mgi.shr.dbutils.dao.BCP_Stream
 DLA_RADAR_STREAM=org.jax.mgi.shr.dbutils.dao.BCP_Stream
 
 export DLA_DB_PREFIX DLA_LOAD_STREAM DLA_RADAR_STREAM
@@ -96,7 +96,7 @@ export DLA_DB_PREFIX DLA_LOAD_STREAM DLA_RADAR_STREAM
 #  Java applications
 DLA_LOADER=org.jax.mgi.shr.dla.coordloader.CoordLoader
 DLA_START=org.jax.mgi.shr.dla.DLAStart
-COORD_INTERPRETER=org.jax.mgi.shr.dla.coordloader.MGSCoordMapFormatInterpreter
+COORD_INTERPRETER=org.jax.mgi.shr.dla.coordloader.MGSCoordinateFormatInterpreter
 COORD_PROCESSOR=org.jax.mgi.shr.dla.coordloader.ChromosomeCoordMapProcessor
 
 export DLA_LOADER DLA_START COORD_INTERPRETER COORD_PROCESSOR
