@@ -89,7 +89,7 @@ echo "command line params: $@"
 config_files=${CONFIG_COMMON}
 for config in $@
 do
-    config=`pwd`/${config}
+#    config=`pwd`/${config}
     if [ ! -r ${config} ]
     then
         echo "Cannot read configuration file: ${config}" | tee -a ${LOG}

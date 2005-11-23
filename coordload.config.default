@@ -184,6 +184,11 @@ COORD_REPEAT_FILE=${OUTPUTDIR}/coordrepeats.out
 
 export COORD_REPEAT_FILE
 
+# okay to load multiple coordinates per object?
+COORD_REPEATS_OK=false
+
+export COORD_REPEATS_OK
+
 ###########################################################################
 #
 #  BCP MANAGER SETTINGS BY DATABASE
