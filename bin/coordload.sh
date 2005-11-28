@@ -81,7 +81,6 @@ fi
 #
 . ${CONFIG_COMMON}
 
-*
 #
 # Make sure command line config files are readable and source
 #
