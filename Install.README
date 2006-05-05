@@ -5,5 +5,7 @@ To Install coordload:
     2) DLAInstall <full_path>/common.config.sh coordload.config
 
 A typical Install is done from coordload root directory:
-/usr/local/mgi/live/dbutils/dlautils/DLAInstall /usr/local/mgi/live/etc/common.config.sh coordload.config
+
+${USRLOCALMGI}/dbutils/dlautils/DLAInstall -n ${USRLOCALMGI}/etc/common.config.sh coordload.config
+
 
