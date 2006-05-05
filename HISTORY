@@ -1,3 +1,11 @@
+TAG: coordload-3-5-0-2
+DATE: 05-05-2006
+STAFF: lec
+RELEASE: MGI3.5
+CHANGES: 
+1) bug fix removed prepending of `pwd` on config file parameters in coordload.sh
+2) sharon had commented this out...we decided to just remove it
+
 TAG: coordload-3-5-0-1
 DATE: 05-04-2006
 STAFF: sc
