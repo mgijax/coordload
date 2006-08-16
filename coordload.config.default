@@ -27,37 +27,21 @@ export INSTALLDIR
 
 # MGD Connection parameters 
 MGD_DBSERVER=PROD_MGI
-#MGD_DBSERVER=DEV1_MGI
-
 MGD_DBURL=shire.informatics.jax.org:4100
-#MGD_DBURL=rohan.informatics.jax.org:4101
-
 MGD_DBNAME=mgd
 MGD_DBUSER=mgd_dbo
-
 MGD_DBSCHEMADIR=${MGDDBSCHEMADIR}
-
 MGD_DBPASSWORDFILE=${MGIDBUTILSDIR}/.mgd_dbo_password
-
 export MGD_DBSERVER MGD_DBURL MGD_DBNAME
 export MGD_DBUSER MGD_DBSCHEMADIR MGD_DBPASSWORDFILE
 
 # RADAR Connection parameters 
 RADAR_DBSERVER=PROD_MGI
-#RADAR_DBSERVER=DEV1_MGI
-
 RADAR_DBURL=shire.informatics.jax.org:4100
-#RADAR_DBURL=rohan.informatics.jax.org:4101
-
 RADAR_DBNAME=radar
-#RADAR_DBNAME=radar_release
-
 RADAR_DBUSER=mgd_dbo
-
 RADAR_DBSCHEMADIR=${RADARDBSCHEMADIR}
-
 RADAR_DBPASSWORDFILE=${MGIDBUTILSDIR}/.mgd_dbo_password
-
 export RADAR_DBSERVER RADAR_DBURL RADAR_DBNAME RADAR_DBUSER
 export RADAR_DBSCHEMADIR RADAR_DBPASSWORDFILE
 
@@ -103,11 +87,11 @@ MS_OK_TO_SEARCH_ASSOC_CLONES=false
 export MS_OK_TO_SEARCH_ASSOC_CLONES
 
 # Full path to dir containing input files 
-INPUTDIR=...
+INPUTDIR=/mgi/all/wts_projects/7600/7655/data
 
 # Full path the the logs, reports, and archive directories e.g.
 #/data/loads/assembly/coordload
-FILEDIR=/data/loads/...
+FILEDIR=/data/loads/assembly/ncbiseqload
 LOGDIR=${FILEDIR}/logs
 RPTDIR=${FILEDIR}/reports
 OUTPUTDIR=${FILEDIR}/output
@@ -116,7 +100,7 @@ ARCHIVEDIR=${FILEDIR}/archive
 export INPUTDIR FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
 
 #  Complete path name of the input file
-INFILE_NAME=${INPUTDIR}/...
+INFILE_NAME=${INPUTDIR}/ncbigenemodels.txt
 
 # Send debug messages to the diagnostic log
 LOG_DEBUG=false
@@ -134,7 +118,7 @@ export INFILE_NAME LOG_DEBUG CACHE_DEBUG DBDEBUG LOG_FACTORY
 
 # this load's login value for DB table CreatedBy and ModifiedBy
 # e.g. ensembl_assemblyseqload
-JOBSTREAM=...
+JOBSTREAM=ncbi_assemblyseqload
 
 export JOBSTREAM
 
@@ -148,24 +132,24 @@ export LOG_PROC LOG_DIAG LOG_CUR LOG_VAL
 
 # logical db name for this data provider
 # e.g. "Ensembl Gene Model"
-COORD_LOGICALDB=...
+COORD_LOGICALDB="NCBI Gene Model"
 
 # name of organism 
 COORD_ORGANISM="mouse, laboratory"
 
 # version of the coordinate load
 # e.g. "NCBI Build 33"
-COORD_VERSION=...
+COORD_VERSION="NCBI Build 36"
 
 export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
 
 # coordinate map collection to which this load belongs
 # e.g. "Ensembl Gene Model"
-COORD_COLLECTION_NAME=...
+COORD_COLLECTION_NAME="NCBI Gene Model"
 
 # abbreviation for the coordinate collection
 # if no value assigned will be same as COORD_COLLECTION
-COORD_COLLECTION_ABBREV=
+COORD_COLLECTION_ABBREV="NCBI Gene Model"
 
 # coordinate map type
 COORD_TYPE=Assembly
@@ -230,7 +214,7 @@ export RADAR_BCP_OK_TO_OVERWRITE
 MAIL_LOADNAME="Coord Load"
 
 #  Recipient list for mailing the log files (comma-separated)
-MAIL_LOG_PROC="sc,lec"
+MAIL_LOG_PROC="lec,sc,dbm"
 MAIL_LOG_CUR=""
 
 export MAIL_LOADNAME MAIL_LOG_PROC MAIL_LOG_CUR
