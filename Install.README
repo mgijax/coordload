@@ -2,7 +2,9 @@ To Install coordload:
 
     1) cp coordload.config.default coordload.config 
         edit as necessary
-    2) DLAInstall <full_path>/common.config.sh coordload.config
+    2) cp qtl_coordload.config.default qtl_coordload.config
+	edit as necessary
+    3) DLAInstall <full_path>/common.config.sh coordload.config
 
 A typical Install is done from coordload root directory:
 
