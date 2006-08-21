@@ -2,8 +2,7 @@
 #
 #  coordload.config.default
 #
-#  This file sets up environment variables that are needed for the
-#  Coordinate load
+#  This file sets up environment variables that are needed for a Coordinate load
 #
 ###########################################################################
 
@@ -40,7 +39,7 @@ RADAR_DBSERVER=PROD_MGI
 RADAR_DBURL=shire.informatics.jax.org:4100
 RADAR_DBNAME=radar
 RADAR_DBUSER=mgd_dbo
-RADAR_DBSCHEMADIR=USRLOCALMGI}/dbutils/radar/radardbschema
+RADAR_DBSCHEMADIR=${USRLOCALMGI}/dbutils/radar/radardbschema
 RADAR_DBPASSWORDFILE=${USRLOCALMGI}/dbutils/mgidbutilities/.mgd_dbo_password
 export RADAR_DBSERVER RADAR_DBURL RADAR_DBNAME RADAR_DBUSER
 export RADAR_DBSCHEMADIR RADAR_DBPASSWORDFILE
@@ -86,6 +85,21 @@ MS_OK_TO_SEARCH_ASSOC_CLONES=false
 
 export MS_OK_TO_SEARCH_ASSOC_CLONES
 
+# Full path to dir containing input files 
+INPUTDIR=/mgi/all/wts_projects/7600/7655/data
+
+# Full path the the logs, reports, and archive directories e.g.
+FILEDIR=/data/loads/mgi/qtl/coordload
+LOGDIR=${FILEDIR}/logs
+RPTDIR=${FILEDIR}/reports
+OUTPUTDIR=${FILEDIR}/output
+ARCHIVEDIR=${FILEDIR}/archive
+
+export INPUTDIR FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
+
+#  Complete path name of the input file
+INFILE_NAME=${INPUTDIR}/QTL_Cords2Load.txt
+
 # Send debug messages to the diagnostic log
 LOG_DEBUG=false
 
@@ -98,7 +112,64 @@ DBDEBUG=false
 # log factory class so classes can get their own logger
 LOG_FACTORY=org.jax.mgi.shr.dla.log.DLALoggerFactory
 
-export LOG_DEBUG CACHE_DEBUG DBDEBUG LOG_FACTORY
+export INFILE_NAME LOG_DEBUG CACHE_DEBUG DBDEBUG LOG_FACTORY
+
+# this load's login value for DB table CreatedBy and ModifiedBy
+# e.g. ensembl_assemblyseqload
+JOBSTREAM=qtl_coordload
+
+export JOBSTREAM
+
+#  Complete path name of the log files
+LOG_PROC=${LOGDIR}/coordload.proc.log
+LOG_DIAG=${LOGDIR}/coordload.diag.log
+LOG_CUR=${LOGDIR}/coordload.cur.log
+LOG_VAL=${LOGDIR}/coordload.val.log
+
+export LOG_PROC LOG_DIAG LOG_CUR LOG_VAL
+
+# logical db name for this data provider
+# e.g. "Ensembl Gene Model"
+COORD_LOGICALDB="MGI"
+
+# name of organism 
+COORD_ORGANISM="mouse, laboratory"
+
+# version of the coordinate load
+# e.g. "NCBI Build 33"
+COORD_VERSION="NCBI Build 36"
+
+export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
+
+# coordinate map collection to which this load belongs
+# e.g. "Ensembl Gene Model"
+COORD_COLLECTION_NAME="MGI QTL"
+
+# abbreviation for the coordinate collection
+# if no value assigned will be same as COORD_COLLECTION
+COORD_COLLECTION_ABBREV="MGI QTL"
+
+# coordinate map type
+COORD_TYPE=Assembly
+
+# the coordinate map units
+COORD_UNITS="base pair"
+
+# MGI type name of the feature
+COORD_FEATURE_MGITYPE=Marker
+
+export COORD_COLLECTION_NAME COORD_COLLECTION_ABBREV COORD_TYPE
+export COORD_UNITS COORD_FEATURE_MGITYPE
+
+# full path to coordinate repeat file
+COORD_REPEAT_FILE=${OUTPUTDIR}/coordrepeats.out
+
+export COORD_REPEAT_FILE
+
+# okay to load multiple coordinates per object?
+COORD_REPEATS_OK=false
+
+export COORD_REPEATS_OK
 
 ###########################################################################
 #
@@ -132,3 +203,16 @@ export RADAR_BCP_PATH RADAR_BCP_PREVENT_EXECUTE RADAR_BCP_TRUNCATE_LOG
 export RADAR_BCP_DROP_INDEXES RADAR_BCP_RECORD_STAMPING RADAR_BCP_AUTO_FLUSH
 export RADAR_BCP_OK_TO_OVERWRITE
 
+###########################################################################
+#
+#  MISCELLANEOUS SETTINGS
+#
+###########################################################################
+#  The name of the load for the subject of an email notification
+MAIL_LOADNAME="MGI QTL Coordinate Load"
+
+#  Recipient list for mailing the log files (comma-separated)
+MAIL_LOG_PROC="lec,sc,dbm"
+MAIL_LOG_CUR=""
+
+export MAIL_LOADNAME MAIL_LOG_PROC MAIL_LOG_CUR

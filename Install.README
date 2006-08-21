@@ -1,13 +1,15 @@
 To Install coordload:
 
-    1) cp coordload.config.default coordload.config 
-        edit as necessary
+    1) cp coordload.config.default coordload.config
+	edit as necessary
     2) cp qtl_coordload.config.default qtl_coordload.config
 	edit as necessary
-    3) DLAInstall <full_path>/common.config.sh coordload.config
+    3) cp qtl_noteload.config.default qtl_noteload.config
+	edit as necessary
+    4) DLAInstall <full_path>/common.config.sh coordload.config qtl_coordload.config
 
 A typical Install is done from coordload root directory:
 
-${USRLOCALMGI}/dbutils/dlautils/DLAInstall ${USRLOCALMGI}/etc/common.config.sh coordload.config
+${USRLOCALMGI}/dbutils/dlautils/DLAInstall ${USRLOCALMGI}/etc/common.config.sh coordload.config qtl_coordload.config
 
 
