@@ -171,6 +171,11 @@ COORD_REPEATS_OK=false
 
 export COORD_REPEATS_OK
 
+# noteload configuration values
+NOTELOAD_SH=${USRLOCALMGI}/dataload/noteload/mginoteload.csh
+NOTELOADCONFIG=${INSTALLDIR}/qtl_noteload.config
+export NOTELOAD_SH NOTELOADCONFIG
+
 ###########################################################################
 #
 #  BCP MANAGER SETTINGS BY DATABASE

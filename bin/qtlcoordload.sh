@@ -218,7 +218,7 @@ echo "Running noteload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 # log time and input files to process
 echo "\n`date`" >> ${LOG_PROC}
-${NOTELOAD_SH} ${NOTELOAD_CONFIG} >> ${LOG_PROC}
+${NOTELOAD_SH} ${NOTELOADCONFIG} >> ${LOG_PROC}
 STAT=$?
 checkStatus ${STAT} "${ASSOCLOADER_SH}"
 
