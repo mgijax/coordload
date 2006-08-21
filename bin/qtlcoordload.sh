@@ -218,7 +218,7 @@ echo "Running noteload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 # log time and input files to process
 echo "\n`date`" >> ${LOG_PROC}
-${NOTELOAD} -S{MGD_DBSERVER} -D${MGD_DBNAME} -U${MGI_DBUSER} -P${MGI_DBPASSWORDFILE} -I${NOTEINPUTFILE} -M${NOTEMODE} -O${NOTEOBJECTTYPE} -T"${NOTETYPE}"
+${NOTELOAD_SH} ${NOTELOAD_CONFIG} >> ${LOG_PROC}
 STAT=$?
 checkStatus ${STAT} "${ASSOCLOADER_SH}"
 
