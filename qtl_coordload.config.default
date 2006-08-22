@@ -86,7 +86,7 @@ MS_OK_TO_SEARCH_ASSOC_CLONES=false
 export MS_OK_TO_SEARCH_ASSOC_CLONES
 
 # Full path to dir containing input files 
-INPUTDIR=/mgi/all/wts_projects/7600/7655/data
+INPUTDIR=/data/loads/mgi/qtl/coordload/input
 
 # Full path the the logs, reports, and archive directories e.g.
 FILEDIR=/data/loads/mgi/qtl/coordload
