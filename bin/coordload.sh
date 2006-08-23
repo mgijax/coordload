@@ -81,14 +81,14 @@ fi
 #
 #  Establish the master configuration file name
 #
-CONFIG_MASTER=${MGICONFIG/master.config.sh
+CONFIG_MASTER=${MGICONFIG}/master.config.sh
 
 #
 #  Make sure the master config configuration file readable.
 #
-if [ ! -r ${MGICONFIG}/master.config.sh ]
+if [ ! -r ${CONFIG_MASTER} ]
 then
-    echo "Cannot read configuration file: ${MGICONFIG}/master.config.sh" | tee -a ${LOG}
+    echo "Cannot read configuration file: ${CONFIG_MASTER}" | tee -a ${LOG}
     exit 1
 fi
 
