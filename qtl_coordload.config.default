@@ -13,6 +13,10 @@
 #
 ###########################################################################
 
+# MGI Config
+MGICONFIG=${USRLOCALMGI}/mgiconfig
+export MGICONFIG
+
 #  Installation directory 
 INSTALLDIR=${USRLOCALMGI}/dataload/coordload
 
@@ -24,25 +28,7 @@ export INSTALLDIR
 #
 ###########################################################################
 
-# MGD Connection parameters 
-MGD_DBSERVER=PROD_MGI
-MGD_DBURL=shire.informatics.jax.org:4100
-MGD_DBNAME=mgd
-MGD_DBUSER=mgd_dbo
-MGD_DBSCHEMADIR=${USRLOCALMGI}/dbutils/mgd/mgddbschema
-MGD_DBPASSWORDFILE=${USRLOCALMGI}/dbutils/mgidbutilities/.mgd_dbo_password
-export MGD_DBSERVER MGD_DBURL MGD_DBNAME
-export MGD_DBUSER MGD_DBSCHEMADIR MGD_DBPASSWORDFILE
-
-# RADAR Connection parameters 
-RADAR_DBSERVER=PROD_MGI
-RADAR_DBURL=shire.informatics.jax.org:4100
-RADAR_DBNAME=radar
-RADAR_DBUSER=mgd_dbo
-RADAR_DBSCHEMADIR=${USRLOCALMGI}/dbutils/radar/radardbschema
-RADAR_DBPASSWORDFILE=${USRLOCALMGI}/dbutils/mgidbutilities/.mgd_dbo_password
-export RADAR_DBSERVER RADAR_DBURL RADAR_DBNAME RADAR_DBUSER
-export RADAR_DBSCHEMADIR RADAR_DBPASSWORDFILE
+# include MGICONFIG/master.config.sh in config file list
 
 ##########################################################################
 #

@@ -79,10 +79,29 @@ fi
 . ${CONFIG_COMMON}
 
 #
+#  Establish the master configuration file name
+#
+CONFIG_MASTER=${MGICONFIG/master.config.sh
+
+#
+#  Make sure the master config configuration file readable.
+#
+if [ ! -r ${MGICONFIG}/master.config.sh ]
+then
+    echo "Cannot read configuration file: ${MGICONFIG}/master.config.sh" | tee -a ${LOG}
+    exit 1
+fi
+
+#
+# Source the master configuration file
+#
+. ${CONFIG_MASTER}
+
+#
 # Make sure command line config files are readable and source
 #
 echo "command line params: $@"
-config_files=${CONFIG_COMMON}
+config_files="${CONFIG_COMMON},${CONFIG_MASTER}"
 for config in $@
 do
     if [ ! -r ${config} ]
