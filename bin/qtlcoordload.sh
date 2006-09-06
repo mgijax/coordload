@@ -1,11 +1,11 @@
 #!/bin/sh
 #
-#  coordload.sh
+#  qtlcoordload.sh
 ###########################################################################
 #
-#  Purpose:  This script controls the execution of the Coordinate Loads
+#  Purpose:  This script controls the execution of the QTL Coordinate Load
 #
-   Usage="coordload.sh config_file [config_file2 ... config_fileN]"
+   Usage="qtlcoordload.sh config_file [config_file2 ... config_fileN]"
 #
 #  Env Vars:
 #
@@ -226,14 +226,20 @@ cleanDir ${OUTPUTDIR} ${RPTDIR}
 
 echo "Running coordload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
-
 # log time and input files to process
 echo "\n`date`" >> ${LOG_PROC}
 
-echo "Processing input file ${INFILE_NAME}" | \
-    tee -a ${LOG_DIAG} ${LOG_PROC}
+echo "Processing input file ${INFILE_NAME}" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 run
+
+echo "Running noteload" | tee -a ${LOG_DIAG} ${LOG_PROC}
+
+# log time and input files to process
+echo "\n`date`" >> ${LOG_PROC}
+${NOTELOAD_SH} ${NOTELOADCONFIG} >> ${LOG_PROC}
+STAT=$?
+checkStatus ${STAT} "${ASSOCLOADER_SH}"
 
 #
 # run postload cleanup and email logs

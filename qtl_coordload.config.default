@@ -1,8 +1,8 @@
 #format: sh
 #
-#  coordload.config.default
+#  qtl_coordload.config.default
 #
-#  This file sets up environment variables that are needed for a Coordinate load
+#  This file sets up environment variables that are needed for the QTL Coordinate load
 #
 ###########################################################################
 
@@ -72,7 +72,7 @@ MS_OK_TO_SEARCH_ASSOC_CLONES=false
 export MS_OK_TO_SEARCH_ASSOC_CLONES
 
 # Full path to dir containing input files 
-INPUTDIR=/mgi/all/wts_projects/7600/7655/data
+INPUTDIR=/data/loads/mgi/qtl/coordload/input
 
 # Full path the the logs, reports, and archive directories e.g.
 FILEDIR=/data/loads/mgi/qtl/coordload
@@ -156,6 +156,11 @@ export COORD_REPEAT_FILE
 COORD_REPEATS_OK=false
 
 export COORD_REPEATS_OK
+
+# noteload configuration values
+NOTELOAD_SH=${USRLOCALMGI}/dataload/noteload/mginoteload.csh
+NOTELOADCONFIG=${INSTALLDIR}/qtl_noteload.config
+export NOTELOAD_SH NOTELOADCONFIG
 
 ###########################################################################
 #
