@@ -13,10 +13,6 @@
 #
 ###########################################################################
 
-# MGI Config
-MGICONFIG=${USRLOCALMGI}/mgiconfig
-export MGICONFIG
-
 #  Installation directory 
 INSTALLDIR=${USRLOCALMGI}/dataload/coordload
 
@@ -28,7 +24,7 @@ export INSTALLDIR
 #
 ###########################################################################
 
-# include MGICONFIG/master.config.sh in config file list
+# include master.config.sh in config file list
 
 ##########################################################################
 #

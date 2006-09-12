@@ -81,7 +81,7 @@ fi
 #
 #  Establish the master configuration file name
 #
-CONFIG_MASTER=${MGICONFIG}/master.config.sh
+CONFIG_MASTER=${USRLOCALMGI}/mgiconfig/master.config.sh
 
 #
 #  Make sure the master config configuration file readable.
