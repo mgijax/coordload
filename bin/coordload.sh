@@ -13,7 +13,8 @@
 #
 #  Inputs:
 #
-#      - Common configuration file (/usr/local/mgi/etc/common.config.sh)
+#      - Common configuration file  - 
+#		/usr/local/mgi/live/mgiconfig/master.config.sh
 #      - Coordinate load configuration file
 #      - Coordinate load input file
 #
@@ -59,59 +60,23 @@ then
     exit 1
 fi
 
-#
-#  Establish the common configuration file name
-#
-CONFIG_COMMON=`pwd`/common.config.sh
-
-#
-#  Make sure the common configuration file readable.
-#
-if [ ! -r ${CONFIG_COMMON} ]
-then
-    echo "Cannot read configuration file: ${CONFIG_COMMON}" | tee -a ${LOG}
-    exit 1
-fi
-
-#
-# Source the common configuration file
-#
-. ${CONFIG_COMMON}
-
-#
-#  Establish the master configuration file name
-#
-CONFIG_MASTER=${MGICONFIG}/master.config.sh
-
-#
-#  Make sure the master config configuration file readable.
-#
-if [ ! -r ${CONFIG_MASTER} ]
-then
-    echo "Cannot read configuration file: ${CONFIG_MASTER}" | tee -a ${LOG}
-    exit 1
-fi
-
-#
-# Source the master configuration file
-#
-. ${CONFIG_MASTER}
 
 #
 # Make sure command line config files are readable and source
 #
-echo "command line params: $@"
-config_files="${CONFIG_COMMON},${CONFIG_MASTER}"
-for config in $@
+
+# there will always be one argument
+config_files=$1
+shift
+. ${config_files}
+
+while [ "$1" != "" ]
 do
-    if [ ! -r ${config} ]
-    then
-        echo "Cannot read configuration file: ${config}" | tee -a ${LOG}
-        exit 1
-    fi
-    config_files="${config_files},${config}"
-    echo "config_files: ${config_files}"
+    config=$1
+    echo ${config}
     . ${config}
+    config_files="${config_files},${config}"
+    shift
 done
 
 echo "javaruntime:${JAVARUNTIMEOPTS}"
@@ -166,7 +131,7 @@ shutDown ()
     #
     # report location of logs
     #
-    echo "\nSee logs at ${LOGDIR}\n" >> ${LOG_PROC}
+    echo "\nSee logs at ${LOGDIR}\n" | tee -a ${LOG_PROC}
 
     #
     # call DLA library function
@@ -184,25 +149,16 @@ run ()
     #
     # log time and input files to process
     #
-    echo "\n`date`" >> ${LOG_PROC}
+    echo "\n`date`" | tee -a ${LOG_PROC}
     #
     # run coordload
     #
     ${JAVA} ${JAVARUNTIMEOPTS} -classpath ${CLASSPATH} \
-	-DCONFIG=${config_files} \
+	-DCONFIG=${CONFIG_MASTER},${config_files} \
 	-DJOBKEY=${JOBKEY} ${DLA_START}
 
     STAT=$?
-    if [ ${STAT} -ne 0 ]
-    then
-	echo "coordload processing failed.  \
-	    Return status: ${STAT}" >> ${LOG_PROC}
-	shutDown
-	exit 1
-    fi
-    echo "coordload completed successfully" >> ${LOG_PROC}
-
-
+    checkStatus ${STAT} "${COORDLOAD}/bin/coordload.sh"
 }
 
 ##################################################################
@@ -228,7 +184,7 @@ echo "Running coordload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 
 # log time and input files to process
-echo "\n`date`" >> ${LOG_PROC}
+echo "\n`date`" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 echo "Processing input file ${INFILE_NAME}" | \
     tee -a ${LOG_DIAG} ${LOG_PROC}
@@ -241,4 +197,3 @@ run
 shutDown
 
 exit 0
-
