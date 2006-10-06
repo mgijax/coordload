@@ -94,13 +94,14 @@ else
     echo "Environment variable DLAJOBSTREAMFUNC has not been defined."
 fi
 
-echo "Running qtl coordload" | tee ${LOG_DIAG} ${LOG_PROC}
+echo "\n`date`" >> ${LOG_DIAG} ${LOG_PROC}
+echo "Running qtl coordload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 ${COORDLOAD}/bin/coordload.sh ${config_files}
 STAT=$?
 checkStatus ${STAT} "${COORDLOAD}/bin/coordload.sh"
 
-echo "\n`date`"  | tee -a ${LOG_DIAG} ${LOG_PROC}
-echo "Running qtl noteload"
+echo "\n`date`" >> ${LOG_DIAG} ${LOG_PROC}
+echo "Running qtl noteload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 ${NOTELOAD_SH} ${NOTELOADCONFIG} | tee -a ${LOG_DIAG} ${LOG_PROC}
 STAT=$?
 checkStatus ${STAT} "${NOTELOAD_SH}"

@@ -79,6 +79,16 @@ do
     shift
 done
 
+#
+#  Make sure the master configuration file is readable
+#
+
+if [ ! -r ${CONFIG_MASTER} ]
+then
+    echo "Cannot read configuration file: ${CONFIG_MASTER}"
+    exit 1
+fi
+
 echo "javaruntime:${JAVARUNTIMEOPTS}"
 echo "classpath:${CLASSPATH}"
 echo "dbserver:${MGD_DBSERVER}"
@@ -105,40 +115,17 @@ fi
 #
 if [ "${INFILE_NAME}" = "" ]
 then
-     # set STAT for endJobStream.py called from postload in shutDown
+     # set STAT for endJobStream.py 
     STAT=1
-    echo "INFILE_NAME not defined. Return status: ${STAT}" | \
-        tee -a ${LOG_DIAG}
-    shutDown
-    exit 1
+    checkStatus ${STAT} "INFILE_NAME not defined"
 fi
 
 if [ ! -r ${INFILE_NAME} ]
 then
-    # set STAT for endJobStream.py called from postload in shutDown
+    # set STAT for endJobStream.py 
     STAT=1
-    echo "Cannot read from input file: ${INFILE_NAME}" | tee -a ${LOG}
-    shutDown
-    exit 1
+    checkStatus ${STAT} "Cannot read from input file: ${INFILE_NAME}"
 fi
-
-#
-#  Function that performs cleanup tasks for the job stream prior to
-#  termination.
-#
-shutDown ()
-{
-    #
-    # report location of logs
-    #
-    echo "\nSee logs at ${LOGDIR}\n" | tee -a ${LOG_PROC}
-
-    #
-    # call DLA library function
-    #
-    postload
-
-}
 
 #
 # Function that runs to java load
@@ -149,7 +136,7 @@ run ()
     #
     # log time and input files to process
     #
-    echo "\n`date`" | tee -a ${LOG_PROC}
+    echo "\n`date`" >> ${LOG_PROC}
     #
     # run coordload
     #
@@ -184,10 +171,10 @@ echo "Running coordload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 
 # log time and input files to process
-echo "\n`date`" | tee -a ${LOG_DIAG} ${LOG_PROC}
+echo "\n`date`" >> ${LOG_DIAG} ${LOG_PROC}
 
-echo "Processing input file ${INFILE_NAME}" | \
-    tee -a ${LOG_DIAG} ${LOG_PROC}
+echo "Processing input file ${INFILE_NAME}" \
+     >> ${LOG_DIAG} ${LOG_PROC}
 
 run
 
