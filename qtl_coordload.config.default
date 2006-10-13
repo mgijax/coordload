@@ -18,6 +18,8 @@ fi
 
 CONFIG_MASTER=${MGICONFIG}/master.config.sh
 
+export CONFIG_MASTER
+
 . ${CONFIG_MASTER}
 
 ##########################################################################
@@ -61,8 +63,8 @@ export FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
 #
 
 # Full path to dir containing input files
-# e.g. /data/downloads/...
-INPUTDIR=/data/loads/mgi/qtl/coordload/input
+# input data needs to be moved to ${DATADOWNLOADS}
+INPUTDIR=${DATALOADSOUTPUT}/mgi/qtl/coordload/input
 
 #  Complete path name of the input file(s)
 INFILE_NAME=${INPUTDIR}/QTL_Cords2Load.txt
