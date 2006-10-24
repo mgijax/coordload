@@ -1,0 +1,8 @@
+To add a new coordinate load
+1) create a new config file based on coordload.config.template - 
+   cp coordload.config.template newcoordload.config
+   fill in the missing settings and change settings as needed
+2) Run coordload.sh passing it newcoordload.config
+   OR
+   If there are other tasks to do, not provided by coordload.sh, 
+   create ./bin/newcoordload.sh. Use qtl_coordload.sh as an example.

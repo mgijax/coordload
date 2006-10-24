@@ -1,3 +1,32 @@
+TAG: coordload-3-5-1-4
+DATE: 10/24/2006
+STAFF: lec
+CHANGES:  merge tr7894 branch
+
+TAG: coordload-tr7894-3
+TAG: coordload-tr7894-2
+DATE: 10/06/2006
+STAFF: sc
+CHANGES:
+1) coordload.sh - use DLAJobstreamFunctions shutDown and checkStatus
+    instead of defining own. change some tee to >>
+2) qtlcoordload.sh - change som tee to >>
+
+TAG: coordload-tr7894-1
+DATE: 09/15/2006
+STAFF: sc
+CHANGES: TR7894 - mgiconfig changes
+1) renamed  coordload.config.default to coordload.config.template
+2) added README - how to add a new coordload
+3) added Install 
+4) updated all config files and scripts to use mgiconfig
+5) qtlcoordload.sh - factored out repeated code, now calls coordload.sh
+6) qtl_coordload.config.default - updated to use mgiconfig 
+7) qtl_noteload.config - removed NOTELOAD as this is set in noteload itself
+   (and will have change its name in noteload when we get to it)
+8) bin/*.sh - updated to use mgiconfig - reorganized the checking
+   and sourceing of config files because no longer have common.config
+
 TAG: coordload-3-5-1-3
 DATE: 09/22/2006
 STAFF: lec
