@@ -1,3 +1,10 @@
+TAG: coordload-4-0-0-1
+DATE: 03/06/2008
+STAFF: sc
+CHANGES: TR8321/TR8698 roopenian coordinate
+1) added roopenian_sts_coordload.config.default
+2) Install - added creation of roopenian load directories
+
 TAG: coordload-3-5-1-4
 DATE: 10/24/2006
 STAFF: lec

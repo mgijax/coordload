@@ -5,8 +5,9 @@
 #
 # 1) cp qtl_coordload.config.default qtl_coordload.config
 #    and edit as necessary.
-#
-# 2) Install 
+# 2) cp roopenian_sts_coordload.config.default roopenian_sts_coordload
+#    and edit as necessary.
+# 3) Install 
 #
 
 Usage=Install
@@ -30,17 +31,48 @@ then
 fi
 
 #
-# Make sure config file exists and source it
+# establish config file names
 #
 cd `dirname $0`
-LOAD_CONFIG=qtl_coordload.config
+QTL_CONFIG=qtl_coordload.config
+ROOP_STS_CONFIG=roopenian_sts_coordload.config
 
-if [ -r ${LOAD_CONFIG} ]
+#
+# source qtl and install
+#
+if [ -r ${QTL_CONFIG} ]
 then
-    echo "Source ${LOAD_CONFIG}"
-    . ${LOAD_CONFIG}
+    echo "Source ${QTL_CONFIG}"
+    . ${QTL_CONFIG}
 else
-    echo "Cannot source configuration file: ${LOAD_CONFIG}"
+    echo "Cannot source configuration file: ${QTL_CONFIG}"
+    installFailed
+fi
+
+#
+# Check to see if this is a development installation
+#
+DEV=""
+
+if [ "${INSTALL_TYPE}" = "dev" ]
+then
+    DEV="-d"
+fi
+
+#
+# run DLAInstall
+#
+${DLAINSTALL} ${DEV}
+
+#
+# source roopenian sts and install
+#
+if [ -r ${ROOP_STS_CONFIG} ]
+then
+    echo "Source ${QTL_CONFIG}"
+    . ${ROOP_STS_CONFIG}
+else
+    echo "Cannot source configuration file: ${ROOP_STS_CONFIG}"
     installFailed
 fi
 
