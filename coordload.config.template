@@ -121,6 +121,11 @@ JOBSTREAM=...
 
 export JOBSTREAM
 
+# incremental or delete_reload
+COORD_LOAD_MODE=...
+
+export COORD_LOAD_MODE
+
 # logical db name for this data provider
 # e.g. "MGI"
 COORD_LOGICALDB=...
@@ -174,7 +179,7 @@ export COORD_REPEATS_OK
 #  Settings used to create a BCP manager for the MGD database
 MGD_BCP_PATH=${OUTPUTDIR}
 MGD_BCP_PREVENT_EXECUTE=false
-MGD_BCP_TRUNCATE_LOa=true
+MGD_BCP_TRUNCATE_LOG=true
 MGD_BCP_DROP_INDEXES=false
 MGD_BCP_RECORD_STAMPING=false
 MGD_BCP_AUTO_FLUSH=false
