@@ -64,10 +64,10 @@ export FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
 
 # Full path to dir containing input files
 # e.g. /data/downloads/...
-INPUTDIR=/mgi/all/wts_projects/8300/8321/coordload
+INPUTDIR=/mgi/all/wts_projects/8500/8528/DataLoad/sproulests
 
 #  Complete path name of the input file(s)
-INFILE_NAME=${INPUTDIR}/coordload.txt
+INFILE_NAME=${INPUTDIR}/Coordinate_Sproule_load_v37-LOAD_READY.load
 
 export INPUTDIR INFILE_NAME
 
@@ -106,7 +106,7 @@ LOG_VAL=${LOGDIR}/coordload.val.log
 export LOG_PROC LOG_DIAG LOG_CUR LOG_VAL
 
 # Send debug messages to the diagnostic log
-LOG_DEBUG=true
+LOG_DEBUG=false
 DBDEBUG=false
 CACHE_DEBUG=false
 
@@ -130,7 +130,7 @@ COORD_ORGANISM="mouse, laboratory"
 
 # version of the coordinate load
 # e.g. "NCBI Build 36"
-COORD_VERSION="NCBI Build 36"
+COORD_VERSION="NCBI Build 37"
 
 export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
 
@@ -204,10 +204,10 @@ export RADAR_BCP_OK_TO_OVERWRITE
 ###########################################################################
 #  The name of the load for the subject of an email notification
 # e.g. "MGI QTL Coordinate Load"
-MAIL_LOADNAME="TR8321 STS Coordinate Load"
+MAIL_LOADNAME="Roopenian STS Coordinate Load"
 
 #  Recipient list for mailing the curation log file (comma-separated)
-MAIL_LOG_CUR="sc"
+MAIL_LOG_CUR="dbm"
 
 export MAIL_LOADNAME MAIL_LOG_CUR
 
