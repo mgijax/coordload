@@ -1,3 +1,14 @@
+TAG: coordload-4-1-0-1
+DATE: 5/30/2008
+STAFF: dbm
+CHANGES: Merged tr8528 branch to the trunk
+
+TAG: coordload-tr8528-2
+TAG: coordload-tr8528-1
+DATE: 5/9/2008
+STAFF: dbm
+CHANGES: Config changes for build 37
+
 TAG: coordload-tr8528-BP
 DATE: 4/7/2008
 STAFF: dbm
