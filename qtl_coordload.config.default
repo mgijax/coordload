@@ -63,11 +63,10 @@ export FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
 #
 
 # Full path to dir containing input files
-# input data needs to be moved to ${DATADOWNLOADS}
-INPUTDIR=${DATALOADSOUTPUT}/mgi/qtl/coordload/input
+INPUTDIR=/mgi/all/wts_projects/8500/8528/DataLoad/qtl
 
 #  Complete path name of the input file(s)
-INFILE_NAME=${INPUTDIR}/QTL_Cords2Load.txt
+INFILE_NAME=${INPUTDIR}/Final_v37-QTL.load
 
 export INPUTDIR INFILE_NAME
 
@@ -130,7 +129,7 @@ COORD_ORGANISM="mouse, laboratory"
 
 # version of the coordinate load
 # e.g. "NCBI Build 36"
-COORD_VERSION="NCBI Build 36"
+COORD_VERSION="NCBI Build 37"
 
 export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
 
