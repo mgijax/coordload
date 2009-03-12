@@ -1,3 +1,13 @@
+TAG: coordload-4-2-0-1
+DATE: 03/12/2009
+STAFF: sc
+CHANGES: TR7493 - changes won't be used until GTLF release
+added COORD_FEATURE_MGITYPE and COORD_FEATURE_MGITYPE
+to the following
+1) coordload.config.template
+2) qtl_coordload.config.default
+3) roopenian_sts_coordload.config.default
+
 TAG: coordload-4-1-0-1
 DATE: 5/30/2008
 STAFF: dbm

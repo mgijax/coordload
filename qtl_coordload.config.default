@@ -124,6 +124,10 @@ export JOBSTREAM
 # e.g. "MGI"
 COORD_LOGICALDB="MGI"
 
+# MGI type name of the feature
+# e.g. 'Sequence' or 'Marker'
+COORD_FEATURE_MGITYPE=Marker
+
 # name of organism 
 COORD_ORGANISM="mouse, laboratory"
 
@@ -131,7 +135,7 @@ COORD_ORGANISM="mouse, laboratory"
 # e.g. "NCBI Build 36"
 COORD_VERSION="NCBI Build 37"
 
-export COORD_LOGICALDB COORD_ORGANISM COORD_VERSION
+export COORD_LOGICALDB COORD_FEATURE_MGITYPE COORD_ORGANISM COORD_VERSION
 
 # coordinate map collection to which this load belongs
 # e.g. "MGI QTL"
@@ -147,12 +151,8 @@ COORD_TYPE=Assembly
 # the coordinate map units
 COORD_UNITS="base pair"
 
-# MGI type name of the feature
-# e.g. 'Sequence' or 'Marker'
-COORD_FEATURE_MGITYPE=Marker
-
 export COORD_COLLECTION_NAME COORD_COLLECTION_ABBREV COORD_TYPE
-export COORD_UNITS COORD_FEATURE_MGITYPE
+export COORD_UNITS
 
 # full path to coordinate repeat file
 COORD_REPEAT_FILE=${OUTPUTDIR}/coordrepeats.out
