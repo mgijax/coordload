@@ -120,6 +120,11 @@ JOBSTREAM=qtl_coordload
 
 export JOBSTREAM
 
+# add or  delete_reload
+COORD_LOAD_MODE=delete_reload
+
+export COORD_LOAD_MODE
+
 # logical db name for this data provider
 # e.g. "MGI"
 COORD_LOGICALDB="MGI"

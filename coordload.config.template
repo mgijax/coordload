@@ -121,7 +121,7 @@ JOBSTREAM=...
 
 export JOBSTREAM
 
-# incremental or delete_reload
+# add or delete_reload
 COORD_LOAD_MODE=...
 
 export COORD_LOAD_MODE

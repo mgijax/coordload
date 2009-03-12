@@ -121,8 +121,8 @@ JOBSTREAM=roopenian-sts_coordload
 
 export JOBSTREAM
 
-# incremental or delete_reload
-COORD_LOAD_MODE=...
+# add or delete_reload
+COORD_LOAD_MODE=delete_reload
 
 export COORD_LOAD_MODE
 
@@ -132,7 +132,7 @@ COORD_LOGICALDB=MGI
 
 # MGI type name of the feature
 # e.g. 'Sequence' or 'Marker'
-COORD_FEATURE_MGITYPE=...
+COORD_FEATURE_MGITYPE=Marker
 
 # name of organism 
 COORD_ORGANISM="mouse, laboratory"
