@@ -7,7 +7,9 @@
 #    and edit as necessary.
 # 2) cp roopenian_sts_coordload.config.default roopenian_sts_coordload
 #    and edit as necessary.
-# 3) Install 
+# 3) cp tr9601dna_coordload.config.default tr9601dna_coordload.config
+#    and edit as necessary.
+# 4) Install 
 #
 
 Usage=Install
@@ -36,6 +38,7 @@ fi
 cd `dirname $0`
 QTL_CONFIG=qtl_coordload.config
 ROOP_STS_CONFIG=roopenian_sts_coordload.config
+TR9601DNA_CONFIG=tr9601dna_coordload.config
 
 #
 # source qtl and install
@@ -69,10 +72,32 @@ ${DLAINSTALL} ${DEV}
 #
 if [ -r ${ROOP_STS_CONFIG} ]
 then
-    echo "Source ${QTL_CONFIG}"
+    echo "Source ${ROOP_STS_CONFIG}"
     . ${ROOP_STS_CONFIG}
 else
     echo "Cannot source configuration file: ${ROOP_STS_CONFIG}"
+    installFailed
+fi
+
+#
+# Check to see if this is a development installation
+#
+DEV=""
+
+if [ "${INSTALL_TYPE}" = "dev" ]
+then
+    DEV="-d"
+fi
+
+#
+# source tr9601dna and install
+#
+if [ -r ${TR9601DNA_CONFIG} ]
+then
+    echo "Source ${TR9601DNA_CONFIG}"
+    . ${TR9601DNA_CONFIG}
+else
+    echo "Cannot source configuration file: ${TR9601DNA_CONFIG}"
     installFailed
 fi
 
