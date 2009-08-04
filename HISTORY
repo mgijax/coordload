@@ -1,8 +1,10 @@
+TAG: coordload-4-2-0-5
 TAG: coordload-4-2-0-4
+DATE: 08/04/2009
 DATE: 07/28/2009
 STAFF: lec
-CHANGES: TR9601
-1) added tr9601dna_coordload.config.default
+CHANGES: TR9601, added tr9601dna_coordload.config.default
+CHANGES: TR9583, added tr9583micro_coordload.config.default
 
 TAG: coordload-4-2-0-3
 TAG: coordload-4-2-0-1
