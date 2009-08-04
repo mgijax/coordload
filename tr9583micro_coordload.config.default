@@ -51,7 +51,7 @@ export JAVARUNTIMEOPTS JAVA_LIB CLASSPATH
 
 # Full path the the logs, reports, and archive directories 
 # e.g. /data/loads/mgi/qtl/coordload
-FILEDIR=/data/loads/mgi/tr9583mirna/coordload
+FILEDIR=/data/loads/mgi/tr9583micro/coordload
 
 LOGDIR=${FILEDIR}/logs
 RPTDIR=${FILEDIR}/reports
@@ -119,7 +119,7 @@ export LOG_DEBUG DBDEBUG CACHE_DEBUG LOG_FACTORY
 
 # this load's login value for DB table CreatedBy and ModifiedBy
 # e.g. qtl_coordload
-JOBSTREAM=tr9583mirna_coordload
+JOBSTREAM=tr9583micro_coordload
 
 export JOBSTREAM
 

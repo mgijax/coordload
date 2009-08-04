@@ -9,7 +9,9 @@
 #    and edit as necessary.
 # 3) cp tr9601dna_coordload.config.default tr9601dna_coordload.config
 #    and edit as necessary.
-# 4) Install 
+# 4) cp tr9583micro_coordload.config.default tr9583micro_coordload.config
+#    and edit as necessary.
+# 5) Install 
 #
 
 Usage=Install
@@ -39,6 +41,7 @@ cd `dirname $0`
 QTL_CONFIG=qtl_coordload.config
 ROOP_STS_CONFIG=roopenian_sts_coordload.config
 TR9601DNA_CONFIG=tr9601dna_coordload.config
+TR9583MICRO_CONFIG=tr9583micro_coordload.config
 
 #
 # source qtl and install
@@ -98,6 +101,18 @@ then
     . ${TR9601DNA_CONFIG}
 else
     echo "Cannot source configuration file: ${TR9601DNA_CONFIG}"
+    installFailed
+fi
+
+#
+# source tr9583micro and install
+#
+if [ -r ${TR9583MICRO_CONFIG} ]
+then
+    echo "Source ${TR9583MICRO_CONFIG}"
+    . ${TR9583MICRO_CONFIG}
+else
+    echo "Cannot source configuration file: ${TR9583MICRO_CONFIG}"
     installFailed
 fi
 
