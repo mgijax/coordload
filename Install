@@ -93,6 +93,11 @@ then
 fi
 
 #
+# run DLAInstall
+#
+${DLAINSTALL} ${DEV}
+
+#
 # source tr9601dna and install
 #
 if [ -r ${TR9601DNA_CONFIG} ]
@@ -103,6 +108,21 @@ else
     echo "Cannot source configuration file: ${TR9601DNA_CONFIG}"
     installFailed
 fi
+
+#
+# Check to see if this is a development installation
+#
+DEV=""
+
+if [ "${INSTALL_TYPE}" = "dev" ]
+then
+    DEV="-d"
+fi
+
+#
+# run DLAInstall
+#
+${DLAINSTALL} ${DEV}
 
 #
 # source tr9583micro and install
