@@ -42,6 +42,7 @@ QTL_CONFIG=qtl_coordload.config
 ROOP_STS_CONFIG=roopenian_sts_coordload.config
 TR9601DNA_CONFIG=tr9601dna_coordload.config
 TR9583MICRO_CONFIG=tr9583micro_coordload.config
+TR9873MIRBASE_CONFIG=tr9873mirbase_coordload.config
 
 #
 # source qtl and install
@@ -133,6 +134,18 @@ then
     . ${TR9583MICRO_CONFIG}
 else
     echo "Cannot source configuration file: ${TR9583MICRO_CONFIG}"
+    installFailed
+fi
+
+#
+# source tr9873mirbase_coordload and install
+#
+if [ -r ${TR9873MIRBASE_CONFIG} ]
+then
+    echo "Source ${TR9873MIRBASE_CONFIG}"
+    . ${TR9873MIRBASE_CONFIG}
+else
+    echo "Cannot source configuration file: ${TR9873MIRBASE_CONFIG}"
     installFailed
 fi
 
