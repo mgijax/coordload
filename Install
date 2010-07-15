@@ -3,15 +3,9 @@
 #
 # Installation script for coordinate loads
 #
-# 1) cp qtl_coordload.config.default qtl_coordload.config
+# 1) cp *.config.default *.config
 #    and edit as necessary.
-# 2) cp roopenian_sts_coordload.config.default roopenian_sts_coordload
-#    and edit as necessary.
-# 3) cp tr9601dna_coordload.config.default tr9601dna_coordload.config
-#    and edit as necessary.
-# 4) cp tr9583micro_coordload.config.default tr9583micro_coordload.config
-#    and edit as necessary.
-# 5) Install 
+# 2) Install 
 #
 
 Usage=Install
@@ -41,8 +35,7 @@ cd `dirname $0`
 QTL_CONFIG=qtl_coordload.config
 ROOP_STS_CONFIG=roopenian_sts_coordload.config
 TR9601DNA_CONFIG=tr9601dna_coordload.config
-TR9583MICRO_CONFIG=tr9583micro_coordload.config
-TR9873MIRBASE_CONFIG=tr9873mirbase_coordload.config
+TRNA_CONFIG=trna_coordload.config
 
 #
 # source qtl and install
@@ -125,27 +118,16 @@ fi
 #
 ${DLAINSTALL} ${DEV}
 
-#
-# source tr9583micro and install
-#
-if [ -r ${TR9583MICRO_CONFIG} ]
-then
-    echo "Source ${TR9583MICRO_CONFIG}"
-    . ${TR9583MICRO_CONFIG}
-else
-    echo "Cannot source configuration file: ${TR9583MICRO_CONFIG}"
-    installFailed
-fi
 
 #
-# source tr9873mirbase_coordload and install
+# source trna config and install
 #
-if [ -r ${TR9873MIRBASE_CONFIG} ]
+if [ -r ${TRNA_CONFIG} ]
 then
-    echo "Source ${TR9873MIRBASE_CONFIG}"
-    . ${TR9873MIRBASE_CONFIG}
+    echo "Source ${TRNA_CONFIG}"
+    . ${TRNA_CONFIG}
 else
-    echo "Cannot source configuration file: ${TR9873MIRBASE_CONFIG}"
+    echo "Cannot source configuration file: ${TRNA_CONFIG}"
     installFailed
 fi
 

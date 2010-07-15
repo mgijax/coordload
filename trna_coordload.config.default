@@ -1,7 +1,5 @@
 #format: sh
 #
-#  TR9583 59 new microRNAs
-#
 #  Configuration for coordload
 #
 #  This file sets up environment variables that are needed for a Coordinate load
@@ -32,7 +30,7 @@ export CONFIG_MASTER
 
 JAVARUNTIMEOPTS="-Xms1500m -Xmx1500m"
 
-JAVA_LIB=${MGI_JAVALIB}/core.jar:${MGI_JAVALIB}/dbsmgd.jar:${MGI_JAVALIB}/lib_java_dbsrdr/dbsrdr.jar:${MGI_JAVALIB}/dla.jar
+JAVA_LIB=${MGI_JAVALIB}/core.jar:${MGI_JAVALIB}/dbsmgd.jar:${MGI_JAVALIB}/dbsrdr.jar:${MGI_JAVALIB}/dla.jar
 
 CLASSPATH=.:${JAVA_LIB}:${COMMON_CLASSPATH}
 
@@ -50,8 +48,7 @@ export JAVARUNTIMEOPTS JAVA_LIB CLASSPATH
 #
 
 # Full path the the logs, reports, and archive directories 
-# e.g. /data/loads/mgi/qtl/coordload
-FILEDIR=/mgi/all/wts_projects/9500/9583/coordload
+FILEDIR=/data/loads/mgi/trna/coordload
 
 LOGDIR=${FILEDIR}/logs
 RPTDIR=${FILEDIR}/reports
@@ -65,11 +62,10 @@ export FILEDIR LOGDIR RPTDIR OUTPUTDIR ARCHIVEDIR
 #
 
 # Full path to dir containing input files
-# e.g. /data/downloads/...
-INPUTDIR=/mgi/all/wts_projects/9500/9583
+INPUTDIR=/mgi/all/wts_projects/10000/10014
 
 #  Complete path name of the input file(s)
-INFILE_NAME="${INPUTDIR}/Load_ready.txt"
+INFILE_NAME=${INPUTDIR}/trna_master.txt
 
 export INPUTDIR INFILE_NAME
 
@@ -118,19 +114,18 @@ LOG_FACTORY=org.jax.mgi.shr.dla.log.DLALoggerFactory
 export LOG_DEBUG DBDEBUG CACHE_DEBUG LOG_FACTORY
 
 # this load's login value for DB table CreatedBy and ModifiedBy
-# e.g. qtl_coordload
-JOBSTREAM=tr9583micro_coordload
+JOBSTREAM=trna_coordload
 
 export JOBSTREAM
 
-# add or delete_reload
+# add or  delete_reload
 COORD_LOAD_MODE=delete_reload
 
 export COORD_LOAD_MODE
 
 # logical db name for this data provider
 # e.g. "MGI"
-COORD_LOGICALDB=MGI
+COORD_LOGICALDB="MGI"
 
 # MGI type name of the feature
 # e.g. 'Sequence' or 'Marker'
@@ -146,8 +141,7 @@ COORD_VERSION="NCBI Build 37"
 export COORD_LOGICALDB COORD_FEATURE_MGITYPE COORD_ORGANISM COORD_VERSION
 
 # coordinate map collection to which this load belongs
-# e.g. "MGI QTL"
-COORD_COLLECTION_NAME="TR9583 microRNAs"
+COORD_COLLECTION_NAME="MGI tRNA"
 
 # abbreviation for the coordinate collection
 # if no value assigned will be same as COORD_COLLECTION
@@ -160,7 +154,7 @@ COORD_TYPE=Assembly
 COORD_UNITS="base pair"
 
 export COORD_COLLECTION_NAME COORD_COLLECTION_ABBREV COORD_TYPE
-export COORD_UNITS 
+export COORD_UNITS
 
 # full path to coordinate repeat file
 COORD_REPEAT_FILE=${OUTPUTDIR}/coordrepeats.out
@@ -181,7 +175,7 @@ export COORD_REPEATS_OK
 #  Settings used to create a BCP manager for the MGD database
 MGD_BCP_PATH=${OUTPUTDIR}
 MGD_BCP_PREVENT_EXECUTE=false
-MGD_BCP_TRUNCATE_LOG=true
+MGD_BCP_TRUNCATE_LOa=true
 MGD_BCP_DROP_INDEXES=false
 MGD_BCP_RECORD_STAMPING=false
 MGD_BCP_AUTO_FLUSH=false
@@ -210,8 +204,7 @@ export RADAR_BCP_OK_TO_OVERWRITE
 #
 ###########################################################################
 #  The name of the load for the subject of an email notification
-# e.g. "MGI QTL Coordinate Load"
-MAIL_LOADNAME="TR9583 microRNA Coordinate Load"
+MAIL_LOADNAME="MGI tRNA Coordinate Load"
 
 #  Recipient list for mailing the curation log file (comma-separated)
 MAIL_LOG_CUR=""
@@ -222,4 +215,3 @@ export MAIL_LOADNAME MAIL_LOG_CUR
 INSTALLDIR=${COORDLOAD}
 
 export INSTALLDIR
-
