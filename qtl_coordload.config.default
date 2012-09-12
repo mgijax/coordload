@@ -48,8 +48,8 @@ export JAVARUNTIMEOPTS JAVA_LIB CLASSPATH
 #
 
 # Full path the the logs, reports, and archive directories 
-# e.g. /data/loads/mgi/qtl/coordload
-FILEDIR=/data/loads/mgi/qtl/coordload
+# e.g. ${DATALOADSOUTPUT}/mgi/qtl/coordload
+FILEDIR=${DATALOADSOUTPUT}/mgi/qtl/coordload
 
 LOGDIR=${FILEDIR}/logs
 RPTDIR=${FILEDIR}/reports
