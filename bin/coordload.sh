@@ -136,7 +136,8 @@ run ()
     #
     # log time and input files to process
     #
-    echo "\n`date`" >> ${LOG_PROC}
+    echo "" >> ${LOG_PROC}
+    echo "`date`" >> ${LOG_PROC}
     #
     # run coordload
     #
@@ -171,7 +172,8 @@ echo "Running coordload" | tee -a ${LOG_DIAG} ${LOG_PROC}
 
 
 # log time and input files to process
-echo "\n`date`" >> ${LOG_DIAG} ${LOG_PROC}
+echo "" >> ${LOG_DIAG} ${LOG_PROC}
+echo "`date`" >> ${LOG_DIAG} ${LOG_PROC}
 
 echo "Processing input file ${INFILE_NAME}" \
      >> ${LOG_DIAG} ${LOG_PROC}
