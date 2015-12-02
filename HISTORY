@@ -1,3 +1,13 @@
+TAG: coordload-6-0-1-1
+DATE: 12/2/2015
+STAFF: dbm
+CHANGES: TR11904 & TR12199
+1) coordload.config.template,
+   qtl_coordload.config.default,
+   roopenian_sts_coordload.config.default,
+   tr9601dna_coordload.config.default,
+   trna_coordload.config.default: Remove MAIL_LOG_CUR setting
+
 TAG: coordload-6-0-0-1
 DATE: 7/23/15
 STAFF: pf
