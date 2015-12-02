@@ -215,10 +215,7 @@ export RADAR_BCP_OK_TO_OVERWRITE
 # e.g. "MGI QTL Coordinate Load"
 MAIL_LOADNAME="Roopenian STS Coordinate Load"
 
-#  Recipient list for mailing the curation log file (comma-separated)
-MAIL_LOG_CUR=""
-
-export MAIL_LOADNAME MAIL_LOG_CUR
+export MAIL_LOADNAME
 
 #  INSTALLDIR expected by dlautils/DLAInstall
 INSTALLDIR=${COORDLOAD}
