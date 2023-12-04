@@ -1,3 +1,9 @@
+TAG: coordload-6-0-22-1
+DATE: 12/04/2023
+STAFF: sc
+CHANGES: removed obsolete config files for one-off loads 
+    whose collections no longer exist in the database
+
 TAG: coordload-6-0-4-2
 TAG: coordload-6-0-4-1
 DATE: 06/16/2016
